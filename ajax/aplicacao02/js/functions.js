@@ -1,6 +1,6 @@
 function loadCustomers(idTable) {
     let xhttp = new XMLHttpRequest();
-    let file = "https://github.com/tcgontijo/PFJS/blob/master/json/clientes.json";
+    let file = "https://tcgontijo.github.io/PFJS/ajax/aplicacao02/json/clientes.json";
 
     xhttp.onreadystatechange = () => {
         if ((xhttp.readyState == 4) && (xhttp.status == 200)) {
