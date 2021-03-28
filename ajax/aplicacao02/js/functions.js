@@ -27,6 +27,5 @@ function printCustomers(clientes, idTable) {
         linha.appendChild(tdNome);
         linha.appendChild(tdIdade);
         tabela.appendChild(linha);
-    }
-
+    });
 }
