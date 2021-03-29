@@ -1,22 +1,2 @@
-[
-    {
-        "nome": "Maria",
-        "idade": 45
-    },
-    {
-        "nome": "José",
-        "idade": 33
-    },
-    {
-        "nome": "Ana",
-        "idade": 85
-    },
-    {
-        "nome": "Antônio",
-        "idade": 78
-    },
-    {
-        "nome": "Carla",
-        "idade": 14
-    }
-]
+{"nome": "Maria",
+"idade": 45}

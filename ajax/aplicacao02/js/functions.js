@@ -1,7 +1,7 @@
 function loadCustomers(idTable) {
     let xhttp = new XMLHttpRequest();
-    let file = "https://github.com/tcgontijo/PFJS/blob/master/json/clientes.json";
-
+    //let file = "https://tcgontijo.github.io/PFJS/ajax/aplicacao02/json/clientes.json";
+    let file = "../json/clientes.json"
     xhttp.onreadystatechange = () => {
         if ((xhttp.readyState == 4) && (xhttp.status == 200)) {
             printCustomers(xhttp.responseText, idTable);
@@ -14,11 +14,13 @@ function loadCustomers(idTable) {
 }
 
 function printCustomers(clientes, idTable) {
+    console.log(clientes);
     var clientes = JSON.parse();
+    console.log(clientes);
 
     var tabela = document.getElementById(idTable);
 
-    clientes.forEach(cliente => {
+    clientes.clientes.forEach(cliente => {
         let linha = document.createElement("tr");
         let tdNome = document.createElement("td");
         let tdIdade = document.createElement("td");
