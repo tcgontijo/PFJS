@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendendo AJAX</title>
+</head>
+
+<body>
+    <h1>Primeiro exemplo de AJAX</h1>
+    <p id="txtMsg">Clique no botão abaixo para mudar o texto.</p>
+    <form action="">
+        <input type="button" value="Alterar Texto" onclick="changeTxt()">
+    </form>
+
+    <script>
+        function changeTxt() {
+            let xhttp = new XMLHttpRequest();
+
+            xhttp.onreadystatechange = function () {
+                if ((xhttp.readyState == 4) && (xhttp.status == 200)) {
+                    document.getElementById("txtMsg").innerHTML = xhttp.responseText;
+                }
+            }
+            
+            xhttp.open("GET", "bd.txt", true);
+            xhttp.send();
+        }
+    </script>
+</body>
+
+</html>
