@@ -8,9 +8,15 @@
     <link rel="stylesheet" href="css/estilos.css">
     <script src="js/functions.js"></script>
 </head>
-<body>
+<body onload="loadCustomers()">
     <p>Clientes cadastrados:</p>
-    <input type="button" value="Carregar Clientes" onclick="loadCustomers('tabCustomers')">
+
+    <select id="selCustomers" onchange="loadCustomers()">
+        <option value="all" selected>Todos os sexos</option>
+        <option value="M">Masculino</option>
+        <option value="F">Feminino</option>
+    </select>
+
     <table id="tabCustomers">
         <tr>
             <th>Nome</th>

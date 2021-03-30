@@ -2,23 +2,28 @@
     "clientes": [
         {
             "nome": "Maria",
-            "idade": 45
+            "idade": 45,
+            "sexo": "F"
         },
         {
             "nome": "José",
-            "idade": 33
+            "idade": 33,
+            "sexo": "M"
         },
         {
             "nome": "Ana",
-            "idade": 85
+            "idade": 85,
+            "sexo": "F"
         },
         {
             "nome": "Antônio",
-            "idade": 78
+            "idade": 78,
+            "sexo": "M"
         },
         {
             "nome": "Carla",
-            "idade": 14
+            "idade": 14,
+            "sexo": "F"
         }
     ]
 }

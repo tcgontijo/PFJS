@@ -2,3 +2,6 @@ table, tr, td, th {
     border: 1px solid black;
     border-collapse: collapse;
 }
+select {
+    margin: 0px 0px 20px 0px;
+}
