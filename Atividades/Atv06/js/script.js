@@ -69,7 +69,7 @@ $(function () {
                     cont = 0;
                     $("#" + idDivAtual + " .frente").fadeOut("slow", function () { $("#" + idDivAtual + " .verso").show(); });
                     $("#" + idDivAnterior + " .frente").fadeOut("slow", function () { $("#" + idDivAnterior + " .verso").show(); });
-                } else {//em caso de acerto
+                } else if (idDivAnterior != idDivAtual){//em caso de acerto
                     cartaAtual.find(".frente").show();
                     cartaAtual.find(".verso").hide();
                     cont = 0;
