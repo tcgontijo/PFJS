@@ -6,7 +6,7 @@ $(function () {
 
     $("#play").click(() => {
         $("#timer").show();
-        $("#timerMemo").html("2");
+        $("#timerMemo").html("5");
         embaralhar();
         timerMemorizar();
         $(".verso").hide();
