@@ -45,6 +45,7 @@ $(function () {
                 clearInterval(tempoParaIniciar);
                 $(".frente").hide();
                 $(".verso").show();
+                $("#timerMemo").html("VALENDO!");
                 valendo();
             }
         }, 1000);
