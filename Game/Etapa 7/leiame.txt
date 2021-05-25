@@ -1,0 +1,6 @@
+Responsável: Tulio Cesar Gontijo
+Data: 20/04/2021
+Objetivo:
+	- Implementar o cronômetro do jogo e os botões pause e stop
+	
+http://profwiltonfilho.atwebpages.com/mole/index.html

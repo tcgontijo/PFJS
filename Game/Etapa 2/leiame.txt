@@ -1,0 +1,6 @@
+Responsável: Tulio Cesar Gontijo
+Data: 20/04/2021
+Objetivo:
+	- Inserir o nível de dificuldade;
+	- Ajustar o tabuleiro conforme o nível de dificuldade selecionado pelo usuário;
+	- Importar biblioteca jQuery
