@@ -1,6 +1,0 @@
-Respons�vel: Tulio Cesar Gontijo
-Data: 20/04/2021
-Objetivo:
-	- Implementar a pontuação do jogo
-	
-http://profwiltonfilho.atwebpages.com/mole/index.html
