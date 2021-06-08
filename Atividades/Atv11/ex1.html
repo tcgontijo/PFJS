@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 01</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        .red {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-nav bg-secondary">
+        <button class="btn btn-navbar btn-light btn-outline-dark" onclick="window.open('index.html', '_self')">Retornar à Home</button>
+    </nav>
+    <div id="root"></div>
+    <script type="text/babel">
+
+        class Contador extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = { timer: 10, classe: "" };
+            }
+            render() {
+                return <p className={this.state.classe}>Contador: {this.state.timer}</p>;
+            }
+            componentDidMount() {
+                this.timerId = setInterval(() => {
+                    if (this.state.timer > 4)
+                        this.setState({ timer: --this.state.timer });
+                    else if (this.state.timer > 0)
+                        this.setState({ timer: --this.state.timer, classe: "red" });
+                    else
+                        componentWillUnmount();
+                }, 1000);
+            }
+            componentWillUnmount() {
+                clearInterval(this.timerId);
+            }
+
+        }
+
+
+        ReactDOM.render(<Contador />, document.getElementById("root"))
+    </script>
+</body>
+
+</html>

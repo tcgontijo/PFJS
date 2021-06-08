@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 05</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        .caixa {
+            width: 300px;
+            margin: auto;
+            text-align: center;
+        }
+        p {
+            font-size: 25px;
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-nav bg-secondary">
+        <button class="btn btn-navbar btn-light btn-outline-dark" onclick="window.open('index.html', '_self')">Retornar à Home</button>
+    </nav>
+    <div id="root"></div>
+    <script type="text/babel">
+        const jsonFile = "json/usrs.json";
+
+        class Celulares extends React.Component {
+            constructor(props) {
+                super(props);
+                this.i = 0;
+                this.state = {};
+            }
+
+            render() {
+                return (
+                    <div className="caixa">
+                        <img src={this.state.img}></img>
+                        <h2>{this.state.nome}</h2>
+                        <p>{this.state.preco}</p>
+                    </div>
+                );
+            }
+            componentDidMount() {
+                let srcImg = ["img/ip12.png", "img/mi10.jpg", "img/s21.png"];
+                let nomes = ["Iphone 12", "Xiaomi MI 10", "Samsung Galaxy S21"];
+                let precos = ["R$5.579.07", "R$4.500,00", "R$5.399,00"];
+
+                this.IdTimer = setInterval(() => {
+
+                    if (this.i < 2)
+                        this.i = this.i + 1;
+                    else
+                        this.i = 0;
+
+                    this.setState({ "img": srcImg[this.i], "nome": nomes[this.i], "preco": precos[this.i] },);
+                }, 1000);
+            }
+            componentWillUnmount() {
+                clearInterval(this.IdTimer);
+            }
+        }
+        ReactDOM.render(<Celulares/>, document.getElementById("root"))
+    </script>
+</body>
+
+</html>
