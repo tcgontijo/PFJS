@@ -36,7 +36,7 @@
             constructor(props) {
                 super(props);
                 this.i = 0;
-                this.state = {};
+                this.state = { "img": "img/ip12.png", "nome": "Iphone 12", "preco": "R$5.579.07"};
             }
 
             render() {
@@ -53,7 +53,7 @@
                 let nomes = ["Iphone 12", "Xiaomi MI 10", "Samsung Galaxy S21"];
                 let precos = ["R$5.579.07", "R$4.500,00", "R$5.399,00"];
 
-                this.IdTimer = setInterval(() => {
+                this.IdTimer = setInterval(async () => {
 
                     if (this.i < 2)
                         this.i = this.i + 1;
