@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Exerício 03</title>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        class Ex4 extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = { produtos: [{ nome: "", preco: "" }] }
+            }
+            render() {
+                const borda = {
+                    border: "1px solid black",
+                    borderCollapse: "collapse"
+                }
+
+                return (
+                    <table style={borda}>
+                        <thead style={borda}>
+                            <tr>
+                                <th style={borda}>Produto Samsung</th>
+                                <th style={borda}>Preço</th>
+                            </tr>
+                        </thead>
+                        <tbody style={borda}>
+                            {this.state.produtos.map(produto => <tr ><td style={borda}>{produto.nome}</td><td style={borda}>{produto.preco}</td></tr>)}
+                        </tbody>
+                    </table>
+                )
+            };
+            componentDidMount() {
+                let vetSamsung = [];
+                fetch('txt/dados.txt')
+                    .then(file => file.text())
+                    .then(content => {
+                        let vetTodos = content.split(";");
+                        for (let i = 0; i < vetTodos.length; i++) {
+                            if (vetTodos[i].includes("Samsung")) {
+                                vetSamsung.push({ nome: vetTodos[i], preco: vetTodos[i + 1] })
+                            }
+                        }
+                        this.setState({ produtos: vetSamsung });
+                    })
+                    .catch(err => console.log(err));
+            }
+            componentWillUnmount() { }
+        }
+        ReactDOM.render(<Ex4 />, document.getElementById("root"));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Exerício 01</title>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        class Ex1 extends React.Component {
+            render() {
+                let nome = prompt("Informe o seu nome:");
+                return (
+                    <p>Seja bem-vindo, {nome}!</p>
+                )
+            };
+        }
+        ReactDOM.render(<Ex1 />, document.getElementById("root"));
+    </script>
+</body>
+
+</html>

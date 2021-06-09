@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Exerício 03</title>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        class Ex3 extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = { msg: "Carregando página. Aguarde ", timer: 20, chrono:" segundos." }
+            }
+            render() {
+                return (
+                    <p>{this.state.msg}{this.state.timer}{this.state.chrono}</p>
+                )
+            };
+
+            componentDidMount() {
+                this.IdTimer = setInterval(() => {
+                    
+                    if (this.state.timer < 6) this.setState({ msg: "Agora sim! Finalizando em " });
+                    else if (this.state.timer < 10) this.setState({ msg: "Fazendo os últimos ajustes! Conta uns " });
+                    else if (this.state.timer < 14) this.setState({ msg: "Meio do caminho! Só mais um pouco! Aguarda aí mais " });
+                    else if (this.state.timer < 18) this.setState({ msg: "Ainda carregando a bendita página. Espere mais " });
+                    
+                    if(this.state.timer > 0) this.setState({ timer: this.state.timer-1});
+                    
+                    if(this.state.timer == 0) this.setState({ msg: "Página Carregada!", timer: "", chrono:""});
+
+                }, 1000);
+            }
+            componentWillUnmount() {
+                clearInterval(this.IdTimer);
+            }
+
+
+        }
+        ReactDOM.render(<Ex3 />, document.getElementById("root"));
+    </script>
+</body>
+
+</html>
