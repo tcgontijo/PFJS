@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Exercício 02</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-nav bg-secondary">
+        <button class="btn btn-navbar btn-light btn-outline-dark" onclick="window.open('index.html', '_self')">Retornar à Home</button>
+    </nav>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        class Somador extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    num1: '',
+                    num2: '',
+                    result: ""
+                }
+            }
+
+            update = (event) => {
+                this.setState({ [event.target.name]: event.target.value });
+                this.setState({ result: "" });
+            }
+
+            checkAndCalculate = (event) => {
+                if (this.state.num1 && this.state.num2)
+                    if (!isNaN(this.state.num1) && !isNaN(this.state.num2))
+                        switch (event.target.innerHTML) {
+                            case "+":
+                                this.setState({ result: Number(this.state.num1) + Number(this.state.num2) });
+                                break;
+                            case "-":
+                                this.setState({ result: Number(this.state.num1) - Number(this.state.num2) });
+                                break;
+                            case "*":
+                                this.setState({ result: (Number(this.state.num1) * Number(this.state.num2)).toFixed(2) });
+                                break;
+                            case "/":
+                                this.setState({ result: (Number(this.state.num1) / Number(this.state.num2)).toFixed(2) });
+                                break;
+                        }
+                    else alert('Campo contém caracter não numérico!')
+                else alert('Campo vazio!')
+            }
+
+            render() {
+                return (
+                    <div>
+                        <h2>Calculadora</h2>
+                        <input type="text" name="num1" onChange={this.update} /><br />
+                        <input type="text" name="num2" onChange={this.update} /><br />
+                        <button onClick={this.checkAndCalculate}>+</button>
+                        <button onClick={this.checkAndCalculate}>-</button>
+                        <button onClick={this.checkAndCalculate}>*</button>
+                        <button onClick={this.checkAndCalculate}>/</button><br />
+                        <input type="text" value={this.state.result} disabled />
+                    </div>
+                );
+            }
+        }
+        ReactDOM.render(<Somador />, document.getElementById("root"));
+    </script>
+</body>
+
+</html>
